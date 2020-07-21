@@ -43,7 +43,8 @@ optimist = require('optimist').usage("Tunnels and reverse tunnels over WebSocket
     .string("s").alias('s', "server").describe('s', 'run as server, specify listening port')
     .string("t").alias('t', "tunnel").describe('t', 'run as tunnel client, specify localport:host:port')
     .boolean("r").alias('r', "reverse").describe('r', 'run in reverse tunneling mode')
-    .string("a").alias('a', "allow").describe('a', 'accept only the requests coming from authorized clients, specify the path to the file containing authorized clients')
+    .string("a").alias('a', "allow").describe('a', '[only with --server="true" and --reverse="true"] accept only the requests coming from authorized clients, specify the path to the file containing authorized clients')
+    .string("u").alias('a', "uuid").describe('u', '[only with --tunnel="true" and --reverse="true"] specify the uuid of the client')
     .string("ssl").describe('ssl', '\"true\" | \"false\" to enable|disable HTTPS communication.')
     .string("key").describe('key', '[only with --ssl="true"] path to private key certificate.')
     .string("cert").describe('cert', '[only with --ssl="true"] path to public key certificate.');
@@ -100,7 +101,8 @@ if (argv.s && !argv.r) {
     client = new wst.client_reverse;
     wsHost = _.last(argv._);
     _ref1 = argv.r.split(":"), portTunnel = _ref1[0], host = _ref1[1], port =_ref1[2];
-    client.start(portTunnel, wsHost, "" + host + ":" + port);
+    uuid = argv.u;
+    client.start(portTunnel, wsHost, "" + host + ":" + port, uuid);
 
   }
 
