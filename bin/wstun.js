@@ -56,7 +56,6 @@ wst = require("../lib/wrapper");
 console.log("TEST");
 
 if (argv.s && !argv.r) {
-      console.log("1!");
 
     // WS tunnel server side
     if (argv.t) {
@@ -71,7 +70,6 @@ if (argv.s && !argv.r) {
     server.start(argv.s);
 
 }else if (argv.t) {
-      console.log("2!");
 
   // WS tunnel client side
 
@@ -88,21 +86,17 @@ if (argv.s && !argv.r) {
 
 
 }else if (argv.r) {
-      console.log("3!");
 
   // WS reverse tunnel
 
   if (argv.s){
-      console.log("4!");
 
     // Server side
     server_opts = {ssl:argv.ssl, key:argv.key, cert:argv.cert, allow:argv.a};
     server = new wst.server_reverse(server_opts);
     server.start(argv.s);
-
   }
   else{
-            console.log("5!");
 
     // Client side
     client = new wst.client_reverse;
