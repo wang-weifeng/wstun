@@ -43,6 +43,7 @@ optimist = require('optimist').usage("Tunnels and reverse tunnels over WebSocket
     .string("s").alias('s', "server").describe('s', 'run as server, specify listening port')
     .string("t").alias('t', "tunnel").describe('t', 'run as tunnel client, specify localport:host:port')
     .boolean("r").alias('r', "reverse").describe('r', 'run in reverse tunneling mode')
+    .string("a").alias('a', "allow").describe('a', 'accept only the requests coming from authorized clients, specify the path to the file containing authorized clients')
     .string("ssl").describe('ssl', '\"true\" | \"false\" to enable|disable HTTPS communication.')
     .string("key").describe('key', '[only with --ssl="true"] path to private key certificate.')
     .string("cert").describe('cert', '[only with --ssl="true"] path to public key certificate.');
@@ -88,7 +89,7 @@ if (argv.s && !argv.r) {
   if (argv.s){
 
     // Server side
-    server_opts = {ssl:argv.ssl, key:argv.key, cert:argv.cert};
+    server_opts = {ssl:argv.ssl, key:argv.key, cert:argv.cert, allow:argv.a};
     server = new wst.server_reverse(server_opts);
     server.start(argv.s);
 
