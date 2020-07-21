@@ -53,8 +53,6 @@ argv = optimist.argv;
 
 wst = require("../lib/wrapper");
 
-console.log("TEST");
-
 if (argv.s && !argv.r) {
 
     // WS tunnel server side
@@ -103,7 +101,6 @@ if (argv.s && !argv.r) {
     wsHost = _.last(argv._);
     _ref1 = argv.r.split(":"), portTunnel = _ref1[0], host = _ref1[1], port =_ref1[2];
     uuid = argv.u;
-    console.log("my uuid: " + uuid);
     client.start(portTunnel, wsHost, "" + host + ":" + port, uuid);
 
   }
