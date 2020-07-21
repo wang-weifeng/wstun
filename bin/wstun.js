@@ -53,6 +53,8 @@ argv = optimist.argv;
 
 wst = require("../lib/wrapper");
 
+console.log("TEST");
+
 if (argv.s && !argv.r) {
       console.log("1!");
 
