@@ -44,7 +44,7 @@ optimist = require('optimist').usage("Tunnels and reverse tunnels over WebSocket
     .string("t").alias('t', "tunnel").describe('t', 'run as tunnel client, specify localport:host:port')
     .boolean("r").alias('r', "reverse").describe('r', 'run in reverse tunneling mode')
     .string("a").alias('a', "allow").describe('a', '[only with --server="true" and --reverse="true"] accept only the requests coming from authorized clients, specify the path to the file containing authorized clients')
-    .string("u").alias('a', "uuid").describe('u', '[only with --tunnel="true" and --reverse="true"] specify the uuid of the client')
+    .string("u").alias('u', "uuid").describe('u', '[only with --tunnel="true" and --reverse="true"] specify the uuid of the client')
     .string("ssl").describe('ssl', '\"true\" | \"false\" to enable|disable HTTPS communication.')
     .string("key").describe('key', '[only with --ssl="true"] path to private key certificate.')
     .string("cert").describe('cert', '[only with --ssl="true"] path to public key certificate.');
