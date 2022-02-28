@@ -1,21 +1,15 @@
 # WSTUN - Tunnels and Reverse Tunnels over WebSocket for Node.js
 
-[![npm version](https://badge.fury.io/js/%40mdslab%2Fwstun.svg)](https://badge.fury.io/js/%40mdslab%2Fwstun)
-
-## Overview
-
-A set of Node.js tools to establish TCP tunnels (or TCP reverse tunnels) over WebSocket connections for circumventing the problem of directly connect to hosts behind a strict firewall or without public IP. It also supports WebSocket Secure (wss) connections.
-
 ## Installation
 ```
-npm install @mdslab/wstun
+npm install xyw-wstun
 ```
 
 ## Usage (from a Node.js application)
 
 ### Instantiation of a tunnel server 
 ```JavaScript
-var wstun = require("@mdslab/wstun");
+var wstun = require("xyw-wstun");
 
 // without security
 server = new wstun.server();
@@ -29,7 +23,7 @@ server.start(<PORT>)
 
 ### Implementation of a tunnel client
 ```JavaScript
-var wstun = require("@mdslab/wstun");
+var wstun = require("xyw-wstun");
 
 client = new wstun.client();
 
@@ -46,7 +40,7 @@ client.start(<localPort>, wstunHost, '<remoteHost>:<remotePort>');
 
 ### Instantiation of a reverse tunnel server
 ```JavaScript
-var wstun = require("@mdslab/wstun");
+var wstun = require("xyw-wstun");
 
 // without security
 reverse_server = new wstun.server_reverse();
@@ -60,7 +54,7 @@ reverse_server.start(<PORT>);
 ``` 
 ### Implementation of a reverse tunnel client
 ```JavaScript   
-var wstun = require("reverse-wstunnel");
+var wstun = require("xyw-wstun");
 
 reverse_client = new wstun.client_reverse();
 
